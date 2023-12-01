@@ -62,7 +62,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
 
     // Compose library jetpack compose
-    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation("androidx.activity:activity-compose:1.8.1")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
 
     implementation("androidx.compose.ui:ui")
@@ -76,12 +76,14 @@ dependencies {
     // LifeCycle Components
     val lifeCycleVersion="2.6.2"
     // ViewModel Lifecycle
+    // ViewModel lets you manage your UI data in a lifecycle-aware fashion
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion")
     // ViewModel Lifecycle for Compose
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:$lifeCycleVersion")
     // Live data
+    // It is a data holder class that is also lifecycle aware it respects the lifecycle of other components such as Activity,fragments or service
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion")
-    implementation ("androidx.compose.runtime:runtime-livedata:1.5.0")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.5.4")
     // Lifecycles only (without viewModel or LiveData)
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion")
 
