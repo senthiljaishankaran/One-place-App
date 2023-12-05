@@ -1,8 +1,8 @@
-package com.app.oneplace.domain.repository
+package com.app.oneplace.data.source.remote
 
 import com.app.oneplace.common.NetworkResponseState
-import com.app.oneplace.domain.entity.product.DetailProductEntity
-import com.app.oneplace.domain.entity.product.ProductEntity
+import com.app.oneplace.data.dto.Product
+import com.app.oneplace.data.dto.Products
 import kotlinx.coroutines.flow.Flow
 
 /*
@@ -13,10 +13,11 @@ import kotlinx.coroutines.flow.Flow
 * but the retrofit and other API libraries make the asynchronous task them selves so there is no need for functions to be implemented as suspend
 * */
 
-interface RemoteRepository {
-    fun getProductsListFromAPI(): Flow<NetworkResponseState<List<ProductEntity>>>
-    fun getSingleProductByIdFromAPI(productId:Int):Flow<NetworkResponseState<List<DetailProductEntity>>>
-    fun getProductsListBySearchFromAPI(query:String):Flow<NetworkResponseState<List<ProductEntity>>>
+// The interface provides the data abstraction to API and Remote source implementation
+interface RemoteDataSource {
+    fun getProductsListFromAPI(): Flow<NetworkResponseState<Products>>
+    fun getSingleProductByIdFromAPI(productId:Int):Flow<NetworkResponseState<Product>>
+    fun getProductsListBySearchFromAPI(query:String):Flow<NetworkResponseState<Products>>
     fun getAllCategoriesListFromAPI():Flow<NetworkResponseState<List<String>>>
-    fun getProductsListByCategoryNameFromAPI(categoryName:String):Flow<NetworkResponseState<List<ProductEntity>>>
+    fun getProductsListByCategoryNameFromAPI(categoryName:String):Flow<NetworkResponseState<Products>>
 }
