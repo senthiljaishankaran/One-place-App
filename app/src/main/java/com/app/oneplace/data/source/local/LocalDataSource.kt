@@ -14,6 +14,8 @@ import com.app.oneplace.domain.entity.product.FavoriteProductEntity
 // The interface provides the data abstraction to Room database and Local data source implementation
 
 interface LocalDataSource {
+    // Mostly the flow return type is needed when handling of asynchronous data is required
+    // here get data from the data source requires flow while updating doesn't
     suspend fun getCartByUserIDFromDb(userId:String): List<UserCartEntity>
     suspend fun insertUserCartToDb(userCartEntity: UserCartEntity)
     suspend fun deleteUserCartFromDb(userCartEntity: UserCartEntity)

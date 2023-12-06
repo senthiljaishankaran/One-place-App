@@ -14,8 +14,10 @@ import kotlinx.coroutines.flow.Flow
 * */
 
 interface RemoteRepository {
+    // Mostly the flow return type is needed when handling of asynchronous data is required
+    // here get data from the data source requires flow while updating doesn't
     fun getProductsListFromAPI(): Flow<NetworkResponseState<List<ProductEntity>>>
-    fun getSingleProductByIdFromAPI(productId:Int):Flow<NetworkResponseState<List<DetailProductEntity>>>
+    fun getSingleProductByIdFromAPI(productId:Int):Flow<NetworkResponseState<DetailProductEntity>>
     fun getProductsListBySearchFromAPI(query:String):Flow<NetworkResponseState<List<ProductEntity>>>
     fun getAllCategoriesListFromAPI():Flow<NetworkResponseState<List<String>>>
     fun getProductsListByCategoryNameFromAPI(categoryName:String):Flow<NetworkResponseState<List<ProductEntity>>>

@@ -13,6 +13,8 @@ import kotlinx.coroutines.flow.Flow
 * but the retrofit and other API libraries make the asynchronous task them selves so there is no need for functions to be implemented as suspend
 * */
 interface LocalRepository {
+    // Mostly the flow return type is needed when handling of asynchronous data is required
+    // here get data from the data source requires flow while updating doesn't
     suspend fun getCartsByUserIDFromDb(userId:String): Flow<NetworkResponseState<List<UserCartEntity>>>
     suspend fun insertUserCartToDb(userCartEntity: UserCartEntity)
     suspend fun updateUserCartToDb(userCartEntity: UserCartEntity)
