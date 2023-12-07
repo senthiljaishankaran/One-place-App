@@ -12,12 +12,14 @@ import javax.inject.Qualifier
 // @Module annotation in dagger-hilt is used to declare the class or object a dagger module
 @Module
 // @InstallIn annotation specifies the Dagger component in which the module should be installed
+// right now it is installed in ViewModelComponent so it scope and lifecycle is with in the view model component for which the instance is created
 // used with K-class ie..::class which allows us to determine type at run time
 @InstallIn(ViewModelComponent::class)
 // object keyword creates a singleton instance of the class
 object CoroutineDispatcherModule{
     @IoDispatcher
-    // @Provides annotation is used to indicate methods that provide instances of the specified types
+    // @Provides annotation is used to indicate methods that provide instances of any specified types
+    // Reason why we use provides here is it not a interface to implementation relation-ship and a normal annotation object class
     @Provides
     // @ViewModelScope- defines the life cycle of the di to single view model
     @ViewModelScoped
