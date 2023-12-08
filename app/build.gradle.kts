@@ -56,7 +56,8 @@ dependencies {
 
     //Firebase
     //Firebase - Used for authentication, crashlytics, analytics, firestore and messaging.
-    implementation("com.google.firebase:firebase-auth:22.2.0")
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.10.0")
 
     //Core
     implementation("androidx.core:core-ktx:1.12.0")
