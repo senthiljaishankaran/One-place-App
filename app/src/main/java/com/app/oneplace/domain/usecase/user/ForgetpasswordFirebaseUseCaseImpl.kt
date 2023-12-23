@@ -6,7 +6,15 @@ import javax.inject.Inject
 class ForgetPasswordFirebaseUseCaseImpl @Inject constructor(
     private val firebaseRepository: FirebaseRepository
 ):ForgetPasswordFirebaseUseCase {
-    override suspend fun invoke(email: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
-        firebaseRepository.forgotPassword(email, onSuccess, onFailure)
+    override suspend fun invoke(email: String, onSuccess: (String) -> Unit, onFailure: (String) -> Unit) {
+        firebaseRepository.forgotPassword(
+            email,
+            onSuccess={
+                onSuccess("Success")
+            },
+            onFailure={
+                onFailure(it)
+            }
+        )
     }
 }

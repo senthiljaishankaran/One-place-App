@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">OnePlace</string>
+    <string name="please_enter_the_email">Please Enter The Email</string>
+    <string name="reset_password">Reset Password</string>
 </resources>
